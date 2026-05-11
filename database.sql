@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS gebruikers (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Standaard admin account (wachtwoord: Admin1234!)
--- Verander dit wachtwoord na eerste login!
 INSERT INTO gebruikers (gebruikersnaam, wachtwoord_hash, rol) VALUES
 ('admin', '$2y$12$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
 
