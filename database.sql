@@ -1,7 +1,4 @@
 -- Drone-Criticus Database Setup
--- Maak eerst de database aan via phpMyAdmin of CLI:
--- CREATE DATABASE drone_criticus CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
 USE ID498100_dronecriticus;
 
 -- Tabel: drone modellen
