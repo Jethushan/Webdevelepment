@@ -1,0 +1,312 @@
+/* ============================================================
+   Drone-Criticus — Navigatiestijlen (navigatie.css)
+   ============================================================ */
+
+/* --- Vaste header --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 12, 15, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(37, 44, 56, 0.8);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.site-header.scrolled {
+    border-bottom-color: rgba(232, 255, 58, 0.2);
+    background: rgba(10, 12, 15, 0.98);
+}
+
+.header-inhoud {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* --- Logo --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--kleur-tekst);
+    flex-shrink: 0;
+}
+
+.logo:hover { opacity: 1; }
+
+.logo-icoon {
+    font-size: 1.4rem;
+    color: var(--kleur-accent);
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), color 0.3s ease;
+}
+
+.logo:hover .logo-icoon {
+    transform: rotate(45deg);
+    color: #ffffff;
+}
+
+.logo-tekst {
+    font-family: var(--lettertype-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
+    line-height: 1;
+}
+
+.logo-accent { color: var(--kleur-accent); }
+
+/* --- Navigatielijst (desktop) --- */
+.hoofd-nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-lijst {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+}
+
+.nav-link {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--kleur-tekst-zacht);
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius-klein);
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--kleur-accent);
+    border-radius: 2px;
+    transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+    color: var(--kleur-tekst);
+    background: rgba(255, 255, 255, 0.04);
+    opacity: 1;
+}
+
+.nav-link:hover::after,
+.nav-link.actief::after {
+    width: calc(100% - 1.8rem);
+}
+
+.nav-link.actief {
+    color: var(--kleur-tekst);
+}
+
+/* Speciale navclinks */
+.nav-admin {
+    color: var(--kleur-accent) !important;
+    border: 1px solid rgba(232, 255, 58, 0.25);
+    background: rgba(232, 255, 58, 0.05);
+}
+
+.nav-admin:hover {
+    background: rgba(232, 255, 58, 0.12) !important;
+    border-color: var(--kleur-accent) !important;
+}
+
+.nav-login {
+    background: var(--kleur-accent);
+    color: #0a0c0f !important;
+    font-weight: 700;
+}
+
+.nav-login:hover {
+    background: rgba(232, 255, 58, 0.8) !important;
+    color: #0a0c0f !important;
+}
+
+.nav-login::after { display: none; }
+
+.nav-logout {
+    font-size: 0.8rem;
+    color: var(--kleur-tekst-extra) !important;
+}
+
+.nav-logout:hover { color: var(--kleur-fout) !important; }
+
+/* --- Hamburger (mobiel) --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: 1px solid var(--kleur-rand);
+    border-radius: var(--radius-klein);
+    cursor: pointer;
+    padding: 7px;
+    transition: border-color 0.2s ease;
+}
+
+.hamburger:hover { border-color: var(--kleur-accent); }
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--kleur-tekst);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Hamburgericoontje bij open menu */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Footer --- */
+.site-footer {
+    background: var(--kleur-oppervlak);
+    border-top: 1px solid var(--kleur-rand);
+    padding: 3rem 1.5rem 2rem;
+    margin-top: auto;
+}
+
+.footer-inhoud {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-logo {
+    font-family: var(--lettertype-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: var(--kleur-accent);
+    margin-bottom: 0.5rem;
+}
+
+.footer-slogan {
+    font-size: 0.85rem;
+    color: var(--kleur-tekst-zacht);
+    margin-bottom: 0;
+}
+
+.footer-kolom h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--kleur-tekst-extra);
+    margin-bottom: 0.75rem;
+    font-family: var(--lettertype-tekst);
+}
+
+.footer-kolom ul {
+    list-style: none;
+}
+
+.footer-kolom ul li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-kolom ul a {
+    font-size: 0.85rem;
+    color: var(--kleur-tekst-zacht);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-kolom ul a:hover {
+    color: var(--kleur-accent);
+    opacity: 1;
+}
+
+.footer-copyright {
+    font-size: 0.78rem;
+    color: var(--kleur-tekst-extra);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* --- Mobiel menu overlay --- */
+@media (max-width: 768px) {
+    .hamburger { display: flex; }
+
+    .hoofd-nav {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 12, 15, 0.97);
+        backdrop-filter: blur(16px);
+        padding: 2rem 1.5rem;
+        display: none; /* jQuery togglet dit */
+        overflow-y: auto;
+        justify-content: flex-start;
+    }
+
+    .hoofd-nav.open {
+        display: flex;
+    }
+
+    .nav-lijst {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .nav-lijst li { width: 100%; }
+
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+        width: 100%;
+    }
+
+    .nav-link::after { display: none; }
+
+    .footer-inhoud {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-inhoud {
+        grid-template-columns: 1fr;
+    }
+}
